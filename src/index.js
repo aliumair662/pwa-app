@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-// Register the service worker
+// Register the service worker in production mode
 serviceWorkerRegistration.register();
 
 ReactDOM.render(
