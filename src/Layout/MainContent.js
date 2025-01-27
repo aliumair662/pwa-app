@@ -30,7 +30,11 @@ import {
   Notifications as NotificationsIcon,
   Person as PersonIcon,
   LocalShipping as StockIcon,
-} from "@mui/icons-material";
+  Refresh as RefreshIcon,
+  FilterList as FilterListIcon,
+  FileDownload as ExportIcon,
+  FileUpload as ImportIcon
+} from '@mui/icons-material';
 
 import { CiMenuKebab } from "react-icons/ci";
 import SearchBar from "../components/Searchfield";
@@ -241,7 +245,100 @@ function Main() {
         </Tabs>
       </Box>
     </Paper>
-
+    <Stack
+              direction="row"
+              spacing={2}
+              justifyContent="space-between"
+              alignItems="center"
+              mb={3}
+            >
+              <Stack direction="row" spacing={1}>
+                <Button
+                  variant="outlined"
+                  startIcon={<FilterListIcon />}
+                  sx={{
+                    color: 'text.secondary',
+                    borderColor: 'divider',
+                    textTransform: 'none',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                    },
+                  }}
+                >
+                  Filters
+                </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<RefreshIcon />}
+                  sx={{
+                    color: 'text.secondary',
+                    borderColor: 'divider',
+                    textTransform: 'none',
+                    '&:hover': {
+                      borderColor: 'primary.main',
+                    },
+                  }}
+                >
+                  Refresh
+                </Button>
+              </Stack>
+              
+              <Stack direction="row" spacing={1}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {}}
+                  sx={{
+                    bgcolor: '#1D4850',
+                    textTransform: 'none',
+                    '&:hover': {
+                      bgcolor: '#1D4850',
+                    },
+                  }}
+                >
+                  Manage Product Category
+                </Button>
+                <Button
+                  variant="contained"
+                  startIcon={<ExportIcon />}
+                  sx={{
+                    bgcolor: '#1D4850',
+                    textTransform: 'none',
+                    '&:hover': {
+                      bgcolor: '#1D4850',
+                    },
+                  }}
+                >
+                  Export
+                </Button>
+                <Button
+                  variant="contained"
+                  startIcon={<ImportIcon />}
+                  sx={{
+                    bgcolor: '#1D4850',
+                    textTransform: 'none',
+                    '&:hover': {
+                      bgcolor: '#1D4850',
+                    },
+                  }}
+                >
+                  Import
+                </Button>
+                <Button
+                  variant="contained"
+                  startIcon={<AddIcon />}
+                  sx={{
+                    bgcolor: '#1D4850',
+                    textTransform: 'none',
+                    '&:hover': {
+                      bgcolor: '#1D4850',
+                    },
+                  }}
+                >
+                  Add Product
+                </Button>
+              </Stack>
+            </Stack>
     <Paper sx={{ p: 3, mb: 3,backgroundColor:"white" }}>
     <Box
           sx={{
@@ -266,44 +363,32 @@ function Main() {
         </Box>
     </Paper>
       <Paper sx={{ p: 3 }}>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          mb={3}
-        >
-          <Typography variant="h5" component="h1">
-            Product List
-          </Typography>
-          <Button
-            variant="contained"
-            startIcon={<AddIcon />}
-            sx={{ bgcolor: "#009EF7" }}
-          >
-            Add Product
-          </Button>
-        </Stack>
+       
 
        
 
         <Box sx={{ height: 400, width: "100%" }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5, 10, 20]}
-            checkboxSelection
-            disableRowSelectionOnClick
-            components={{
-              Toolbar: GridToolbar,
-            }}
-            sx={{
-              border: "none",
-              "& .MuiDataGrid-cell:focus": {
-                outline: "none",
-              },
-            }}
-          />
+        <DataGrid
+  rows={rows}
+  columns={columns}
+  pageSize={5}
+  rowsPerPageOptions={[5, 10, 20]}
+  checkboxSelection
+  disableRowSelectionOnClick
+  // components={{
+  //   Toolbar: GridToolbar,
+  // }}
+  sx={{
+    border: "none",
+    "& .MuiDataGrid-cell:focus": {
+      outline: "none",
+    },
+    "& .MuiDataGrid-columnHeaders": {
+      backgroundColor: "#84C3CC", 
+    },
+  }}
+/>
+
         </Box>
       </Paper>
     </Box>
